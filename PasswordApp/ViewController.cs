@@ -26,5 +26,65 @@ namespace PasswordApp
         {
             throw new NotImplementedException();
         }
+
+        partial void Button2_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button3_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button4_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button5_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button6_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button7_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button8_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button9_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button_Star_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button0_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Button_Pound_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void Login_Button_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

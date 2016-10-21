@@ -74,9 +74,57 @@ namespace PasswordApp
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField User_Entry { get; set; }
 
+        [Action ("Button_Pound_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button_Pound_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button_Star_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button_Star_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button0_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button0_TouchUpInside (UIKit.UIButton sender);
+
         [Action ("Button1_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void Button1_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button2_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button2_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button3_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button3_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button4_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button4_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button5_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button5_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button6_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button6_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button7_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button7_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button8_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button8_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Button9_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Button9_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("Login_Button_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Login_Button_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
