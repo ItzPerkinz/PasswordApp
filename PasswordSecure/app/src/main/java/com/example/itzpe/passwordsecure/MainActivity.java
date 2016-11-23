@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.lang.Object;
 
 
@@ -59,23 +61,36 @@ public class MainActivity extends AppCompatActivity {
         if (passwordText.getText().length() != 0 && passwordText.getText().length() == 5) {
             String value = passwordText.getText().toString();
             entry = Integer.parseInt(value);
-        }
 
-        if (entry == settings.getInt("MainPass", 00000)) {
-            // 1st time use -- force password change
-            if (entry == 00000) {
-                Intent fpass = new Intent(this, ForcedPassChange.class);
-                startActivity(fpass);
-                this.finish();
+            if (entry == settings.getInt("MainPass", 00000)) {
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.INVISIBLE);
+                // 1st time use -- force password change
+                if (entry == 00000) {
+                    Intent fpass = new Intent(this, ForcedPassChange.class);
+                    startActivity(fpass);
+                    this.finish();
+                }
+                else if (settings.getString("Question1", "").equals("")) {
+                    Intent seqQuest = new Intent(this, SetupSecurityQuestions.class);
+                    startActivity(seqQuest);
+                    this.finish();
+                }
+                // normal use
+                else {
+                    Intent main2 = new Intent(this, Main2Activity.class);
+                    startActivity(main2);
+                }
             }
-            // normal use
             else {
-                Intent main2 = new Intent(this, Main2Activity.class);
-                startActivity(main2);
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.VISIBLE);
             }
         }
-        else {
 
+        else {
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            tv.setVisibility(View.VISIBLE);
         }
     }
 

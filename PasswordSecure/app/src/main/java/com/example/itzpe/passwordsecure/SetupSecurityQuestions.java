@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.content.Intent;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class SetupSecurityQuestions extends AppCompatActivity {
 
@@ -14,6 +17,8 @@ public class SetupSecurityQuestions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_security_questions);
+        //TextView tv = (TextView) findViewById(R.id.errorMessage);
+        //tv.setVisibility(View.INVISIBLE);
     }
 
 
@@ -24,7 +29,11 @@ public class SetupSecurityQuestions extends AppCompatActivity {
         EditText answer3 = (EditText) findViewById(R.id.answer3);
 
         String entry = "";
-        if (answer1.getText().length() >= 0 && answer2.getText().length() >= 0 && answer3.getText().length() >= 0) {
+        if (answer1.getText().length() > 0 && answer2.getText().length() > 0 && answer3.getText().length() > 0) {
+
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            tv.setVisibility(View.INVISIBLE);
+
             String x = answer1.getText().toString();
             String y = answer2.getText().toString();
             String z = answer3.getText().toString();
@@ -33,6 +42,10 @@ public class SetupSecurityQuestions extends AppCompatActivity {
             Intent main2 = new Intent(this, Main2Activity.class);
             startActivity(main2);
             this.finish();
+        }
+        else {
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            tv.setVisibility(View.VISIBLE);
         }
     }
 }

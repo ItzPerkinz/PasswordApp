@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.SharedPreferences;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class ChangePassword extends AppCompatActivity {
@@ -33,10 +34,23 @@ public class ChangePassword extends AppCompatActivity {
 
             // old password equals the old password stored in SharedPreferences and the new passwords match each other
             if (op == oldpassword && np1 == np2) {
+
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.INVISIBLE);
+
                 MainActivity m = new MainActivity();
                 m.changePassword(this, np1);
                 this.finish();
             }
+            else {
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
+
+        else {
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            tv.setVisibility(View.VISIBLE);
         }
 
     }

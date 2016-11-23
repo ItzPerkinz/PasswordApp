@@ -103,4 +103,18 @@
         android:layout_below="@+id/newPass"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:text="Passwords are invalid (Must be 5 numbers) or they do not match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorMessage"
+        android:textAlignment="center"
+        tools:visibility="invisible"
+        android:layout_above="@+id/newPassButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
 </RelativeLayout>

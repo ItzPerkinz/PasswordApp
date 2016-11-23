@@ -9,6 +9,9 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.content.Intent;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class ForcedPassChange extends AppCompatActivity {
 
@@ -16,6 +19,8 @@ public class ForcedPassChange extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forced_pass_change);
+        TextView tv = (TextView) findViewById(R.id.errorMessage);
+        tv.setVisibility(View.INVISIBLE);
     }
 
     public void changePassword(View v) {
@@ -32,6 +37,8 @@ public class ForcedPassChange extends AppCompatActivity {
             entry2 = Integer.parseInt(value2);
 
             if (entry == entry2) {
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.INVISIBLE);
                 m.changePassword(this, entry);
                 String test = "";
                 SharedPreferences settings = getSharedPreferences("Settings", 0);
@@ -46,6 +53,14 @@ public class ForcedPassChange extends AppCompatActivity {
                     this.finish();
                 }
             }
+            else {
+                TextView tv = (TextView) findViewById(R.id.errorMessage);
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
+        else {
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            tv.setVisibility(View.VISIBLE);
         }
 
     }

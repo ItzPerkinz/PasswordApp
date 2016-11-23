@@ -24,7 +24,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:text="Username :"
+        android:text="*Username :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/categories"
@@ -76,7 +76,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Additional Notes :"
+        android:text="*Additional Notes :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/noteLabel"
@@ -85,17 +85,6 @@
         android:layout_alignStart="@+id/emailLabel"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="0dp" />
-
-    <Button
-        android:text="Add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/accountNameLabel"
-        android:layout_toEndOf="@+id/accountNameLabel"
-        android:layout_marginBottom="9dp"
-        android:id="@+id/addButton"
-        android:onClick="addAccount"/>
 
     <TextView
         android:text="Category :"
@@ -161,7 +150,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Email :"
+        android:text="*Email :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/emailLabel"
@@ -181,5 +170,34 @@
         android:layout_marginTop="11dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:onClick="addAccount"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/accountNameLabel"
+        android:layout_toEndOf="@+id/accountNameLabel" />
+
+    <TextView
+        android:text="Must fill in Account Name, Category, and Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorMessage"
+        android:visibility="invisible"
+        android:layout_above="@+id/addButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:text="* = Optional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/errorMessage"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
