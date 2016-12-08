@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.lang.Object;
+import java.security.SecureRandom;
 
 public class AddAccount extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -73,7 +74,15 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
         entry.append(notes);
 
         
-        //String test = entry.toString();
-        //Log.d("Test", test, new Throwable("X"));
+        String test = entry.toString();
+        Log.d("Test", test, new Throwable("X"));
+    }
+
+    public void generateRandomPassword(View v) {
+
+        // generates a random password using characters from the characters String
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+        String pwd = RandomStringUtils.random( 15, 0, 0, false, false, characters.toCharArray(), new SecureRandom() );
+        System.out.println( pwd );
     }
 }

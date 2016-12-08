@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences(preferences, 0);
 
-        /*
-        SharedPreferences.Editor ed = settings.edit();
-        ed.clear();
-        ed.commit();
-        */
+
+        //SharedPreferences.Editor ed = settings.edit();
+        //ed.clear();
+        //ed.commit();
+
 
         if (settings.getInt("MainPass", 00000) != 00000) {
             CheckedTextView fi = (CheckedTextView) findViewById(R.id.firstInstructions);
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else {
-            TextView tv = (TextView) findViewById(R.id.errorMessage);
+            TextView tv = (TextView) findViewById(R.id.firstInstructions);
             tv.setVisibility(View.VISIBLE);
         }
     }

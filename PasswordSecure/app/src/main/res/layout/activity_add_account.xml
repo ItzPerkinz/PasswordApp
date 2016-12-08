@@ -171,16 +171,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:text="Add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addButton"
-        android:onClick="addAccount"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/accountNameLabel"
-        android:layout_toEndOf="@+id/accountNameLabel" />
-
     <TextView
         android:text="Must fill in Account Name, Category, and Password"
         android:layout_width="wrap_content"
@@ -196,8 +186,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
-        android:layout_above="@+id/errorMessage"
-        android:layout_marginBottom="5dp"
+        android:layout_alignBaseline="@+id/errorMessage"
+        android:layout_alignBottom="@+id/errorMessage"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Random Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/randomPass"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/errorMessage"
+        android:layout_alignEnd="@+id/errorMessage"
+        android:onClick="generateRandomPassword"/>
+
+    <Button
+        android:text="Add Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:onClick="addAccount"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/noteLabel"
+        android:layout_alignEnd="@+id/noteLabel" />
 
 </RelativeLayout>
