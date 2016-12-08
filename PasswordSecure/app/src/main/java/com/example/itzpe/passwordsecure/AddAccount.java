@@ -1,5 +1,6 @@
 package com.example.itzpe.passwordsecure;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.security.SecureRandom;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.text.StrBuilder;
@@ -94,18 +100,46 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
         String test = entry.toString();
         Log.d("Test", test, new Throwable("X"));
 
+        String file_name = "accounts.txt";
 
-        password = encryptor.decrypt(passwordencrypted);
-        email = encryptor.decrypt(emailencrypted);
-        notes = encryptor.decrypt(notesencrypted);
+        try {
+            FileOutputStream fout = openFileOutput(file_name, MODE_PRIVATE);
+            fout.write(test.getBytes());
+            fout.close();
+        }   catch (FileNotFoundException e)  {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        StringBuilder test2 = new StringBuilder();
-        test2.append(password); test2.append("::");
-        test2.append(email); test2.append("::");
-        test2.append(notes); test2.append("::");
+        String temp = "";
+        try {
+            FileInputStream fin = openFileInput(file_name);
+            temp = "";
+            int x;
+            while ((x=fin.read()) != -1) {
+                temp = temp + Character.toString((char)x);
+            }
+            fin.close();
+        }   catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        String blah = test2.toString();
-        Log.d("Test", blah, new Throwable("X"));
+
+
+        //password = encryptor.decrypt(passwordencrypted);
+        //email = encryptor.decrypt(emailencrypted);
+        //notes = encryptor.decrypt(notesencrypted);
+
+        //StringBuilder test2 = new StringBuilder();
+        //test2.append(password); test2.append("::");
+        //test2.append(email); test2.append("::");
+        //test2.append(notes); test2.append("::");
+
+        //String blah = test2.toString();
+        Log.d("Read", temp, new Throwable("X"));
 
     }
 
