@@ -5,8 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.commons.codec.binary.Base64;
-
+//import org.apache.commons.codec.binary.Base64;
+import android.util.Base64;
 /**
  * Created by itzpe on 12/3/2016.
  * Code based on aesencryption.net
@@ -67,7 +67,9 @@ public class AES {
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
 
-            setEncryptedString(Base64.encodeBase64String(cipher.doFinal(strToEncrypt.getBytes("UTF-8"))));
+            //setEncryptedString(Base64.encodeBase64String(cipher.doFinal(strToEncrypt.getBytes("UTF-8"))));
+            //byte[] data = strToEncrypt.getBytes("UTF-8");
+            //setEncryptedString(Base64.encodeToString(data, Base64.DEFAULT));
 
         }
         catch (Exception e)
@@ -84,7 +86,9 @@ public class AES {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
 
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            setDecryptedString(new String(cipher.doFinal(Base64.decodeBase64(strToDecrypt))));
+            //setDecryptedString(new String(cipher.doFinal(Base64.decodeBase64(strToDecrypt))));
+            //byte[] data2 = strToDecrypt.getBytes("UTF-8");
+            //setDecryptedString(new String(cipher.doFinal(Base64.decode(data2, Base64.DEFAULT))));
 
         }
         catch (Exception e)
