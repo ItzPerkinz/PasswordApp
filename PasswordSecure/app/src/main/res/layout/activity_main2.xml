@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/changepassButton"
         android:onClick="changePassword"
-        android:layout_below="@+id/favPass"
+        android:layout_below="@+id/displayAccounts"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp" />
@@ -59,12 +59,12 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Favorite Passwords"
+        android:text="ALL ACCOUNTS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/favPass"
+        android:id="@+id/displayAccounts"
         android:layout_below="@+id/searchButton"
-        android:onClick="managePasswords"
+        android:onClick="displayAllAccounts"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:layout_centerVertical="true"

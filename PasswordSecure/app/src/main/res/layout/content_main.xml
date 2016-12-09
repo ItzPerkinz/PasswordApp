@@ -27,17 +27,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:id="@+id/loginButton"
-        android:onClick="loginButtonOnClick"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true" />
-
     <CheckedTextView
         android:text="Enter your 5-digit password:"
         android:layout_width="wrap_content"
@@ -48,34 +37,56 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <CheckedTextView
-        android:text="Your password is set to 00000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/firstInstructions"
-        android:checked="false"
-        android:layout_below="@+id/loginButton"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:text="Forgot Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:onClick="forgotPassword"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/firstInstructions"
+        android:layout_centerHorizontal="true" />
+
+    <CheckedTextView
+        android:text="Your password is set to 00000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:id="@+id/firstInstructions"
+        android:checked="false"
+        android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="Incorrect password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/errorMessage"
         android:visibility="invisible"
         android:layout_below="@+id/passwordText"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"
+        android:onClick="loginButtonOnClick"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/errorMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <Button
+        android:text="clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignStart="@+id/loginButton"
+        android:layout_marginBottom="18dp"
+        android:id="@+id/clear"
+        android:onClick="clear"/>
 
 </RelativeLayout>

@@ -186,7 +186,7 @@
         android:text="* = Optional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:id="@+id/optionalMessage"
         android:layout_alignBaseline="@+id/errorMessage"
         android:layout_alignBottom="@+id/errorMessage"
         android:layout_centerHorizontal="true" />
@@ -210,5 +210,25 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/noteLabel"
         android:layout_alignEnd="@+id/noteLabel" />
+
+    <TextView
+        android:text="Account added!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/errorMessage"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/success"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:text="There is already an account with that name in that category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/repeatName"
+        tools:visibility="invisible"
+        android:textAlignment="center"
+        android:layout_alignBottom="@+id/errorMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

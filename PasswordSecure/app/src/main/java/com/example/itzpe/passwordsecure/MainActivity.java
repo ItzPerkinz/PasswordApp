@@ -13,6 +13,7 @@ import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.File;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences(preferences, 0);
 
-
-        //SharedPreferences.Editor ed = settings.edit();
-        //ed.clear();
-        //ed.commit();
 
 
         if (settings.getInt("MainPass", 00000) != 00000) {
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else {
-            TextView tv = (TextView) findViewById(R.id.firstInstructions);
+            TextView tv = (TextView) findViewById(R.id.errorMessage);
             tv.setVisibility(View.VISIBLE);
         }
     }
@@ -130,6 +127,16 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Question2", s2);
         editor.putString("Question3", s3);
         editor.apply();
+    }
+
+    public void clear(View v) {
+        SharedPreferences settings = getSharedPreferences(preferences, 0);
+        SharedPreferences.Editor ed = settings.edit();
+        ed.clear();
+        ed.commit();
+        File dir = getFilesDir();
+        File file = new File(dir, "accounts.txt");
+        boolean deleted = file.delete();
     }
 
 }

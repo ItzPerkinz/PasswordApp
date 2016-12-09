@@ -26,7 +26,11 @@
             android:label="@string/title_activity_forgot_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ChangePassword" />
-        <activity android:name=".AddAccount"></activity>
+        <activity android:name=".AddAccount" />
+        <activity
+            android:name=".Search"
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

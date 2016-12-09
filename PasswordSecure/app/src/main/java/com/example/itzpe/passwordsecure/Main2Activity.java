@@ -16,7 +16,8 @@ public class Main2Activity extends AppCompatActivity {
 
     // search for an account to view/modify
     public void search(View v) {
-
+        Intent search = new Intent(this, Search.class);
+        startActivity(search);
     }
 
     // change the app's password
@@ -32,7 +33,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     // manage your favorite passwords
-    public void managePasswords(View v) {
+    public void displayAllAccounts(View v) {
 
     }
 
