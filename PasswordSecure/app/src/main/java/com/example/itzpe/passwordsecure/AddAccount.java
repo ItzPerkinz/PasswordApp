@@ -34,7 +34,7 @@ import org.w3c.dom.Text;
 
 public class AddAccount extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String category = "";
+    private String category = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

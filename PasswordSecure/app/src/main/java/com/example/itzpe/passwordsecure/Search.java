@@ -20,6 +20,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -67,6 +69,19 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
         ListView lv = (ListView) findViewById(R.id.results);
         adapter2 = new ArrayAdapter<String>(lv.getContext(), android.R.layout.simple_list_item_1, results);
         lv.setAdapter(adapter2);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int index = position;
+                String itemVal = (String) parent.getItemAtPosition(index);
+                Log.d("Click", itemVal);
+            }
+        });
+
+    }
+
+    public void onListItemClick(ListView l, View v, int position, long id) {
+
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -102,15 +117,21 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
         String[] lines = {};
         if (!wholestring.equals("")) lines = wholestring.split("\n");
         for (int i = 0; i < lines.length; i++) {
-            String[] fields = lines[i].split("::");
+            String x = lines[i] + "a";
+            String[] fields = x.split("::");
+            fields[fields.length-1] = fields[fields.length-1].substring(0,fields[fields.length-1].length()-1);
             // decrypt
             if (fields.length == 6) {
-                String password = encryptor.decrypt(fields[3]);
-                String email = encryptor.decrypt(fields[4]);
-                String notes = encryptor.decrypt(fields[5]);
+                if (!fields[3].equals("")) { String password = encryptor.decrypt(fields[3]); }
+                else { String password = ""; }
+                if (!fields[4].equals("")) { String email = encryptor.decrypt(fields[4]); }
+                else { String email = ""; }
+                if (!fields[5].equals("")) { String notes = encryptor.decrypt(fields[5]); }
+                else { String notes = ""; }
             }
             if (!(lines.length == 0)) lines[i] = fields[0] + " -- " + fields[1];
         }
+        lines = alphabetize(lines);
         return lines;
 
     }
@@ -120,22 +141,28 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
         String accountName = "";
         if (et.getText().length() > 0) accountName = et.getText().toString();
 
-
         String[] total = setupList();
         Stack<String> stack = new Stack<String>();
 
         for (int i = 0; i < total.length; i++) {
             String[] nameAndCat = total[i].split(" -- ");
+
+            String storedCategoryLower = nameAndCat[1].toLowerCase();
+            String selectedCategoryLower = selectedCategory.toLowerCase();
+
             // empty accntname
             if (accountName.equals("")) {
-                if (nameAndCat[1].equals(selectedCategory)) {
+                if (storedCategoryLower.equals(selectedCategoryLower)) {
                     String push = nameAndCat[0] + " -- " + nameAndCat[1];
                     stack.push(push);
                 }
             }
             // both accntname and category
             else {
-                if (nameAndCat[0].equals(accountName) && nameAndCat[1].equals(selectedCategory)) {
+                String storedAccountNameLower = nameAndCat[0].toLowerCase();
+                String selectedAccountNameLower = accountName.toLowerCase();
+
+                if (storedAccountNameLower.contains(selectedAccountNameLower) && storedCategoryLower.equals(selectedCategoryLower)) {
                     String push = nameAndCat[0] + " -- " + nameAndCat[1];
                     stack.push(push);
                 }
@@ -147,11 +174,12 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
             results[counter] = stack.pop();
             counter++;
         }
+        results = alphabetize(results);
 
         //Log.d("Debug", results[0], new Throwable("X") );
         if (results.length == 0) {
             Context ctx = getApplicationContext();
-            Toast toast = Toast.makeText(ctx, "No accounts found.", 3);
+            Toast toast = Toast.makeText(ctx, "No accounts found.", Toast.LENGTH_LONG);
             toast.show(); }
 
 
@@ -160,8 +188,31 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
 
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(lv.getContext(), android.R.layout.simple_list_item_1, results);
         lv.setAdapter(adapter3);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int index = position;
+                String itemVal = (String) parent.getItemAtPosition(index);
+                Log.d("Click", itemVal);
+            }
+        });
 
 
     }
+
+    public String[] alphabetize(String[] strings) {
+
+        List<String> temp = new LinkedList<String>();
+        for (int i = 0; i < strings.length; i++) {
+            temp.add(strings[i]);
+        }
+        Collections.sort(temp, String.CASE_INSENSITIVE_ORDER);
+        for (int i = 0; i < temp.size(); i++) {
+            strings[i] = temp.remove(0);
+        }
+        return strings;
+    }
+
+
 
 }

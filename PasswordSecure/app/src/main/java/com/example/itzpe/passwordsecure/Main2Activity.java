@@ -34,7 +34,8 @@ public class Main2Activity extends AppCompatActivity {
 
     // manage your favorite passwords
     public void displayAllAccounts(View v) {
-
+        Intent allAcc = new Intent(this, AllAccounts.class);
+        startActivity(allAcc);
     }
 
 }

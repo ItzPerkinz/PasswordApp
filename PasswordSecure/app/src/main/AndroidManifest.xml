@@ -30,7 +30,9 @@
         <activity
             android:name=".Search"
             android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AllAccounts" />
+        <activity android:name=".ModifyAccount"></activity>
     </application>
 
 </manifest>

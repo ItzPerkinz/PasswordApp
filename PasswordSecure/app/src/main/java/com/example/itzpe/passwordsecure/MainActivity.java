@@ -18,7 +18,7 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String preferences = "Settings";
+    private static final String preferences = "Settings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Intent main2 = new Intent(this, Main2Activity.class);
                     startActivity(main2);
+                    this.finish();
                 }
             }
             else {
