@@ -10,4 +10,199 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.itzpe.passwordsecure.ModifyAccount">
 
+    <TextView
+        android:text="Account Name :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title1"
+        android:textStyle="normal|bold"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Password :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/title4"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/username"
+        android:layout_alignRight="@+id/title3"
+        android:layout_alignEnd="@+id/title3" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_alignBottom="@+id/title2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:clickable="false"
+        android:textAlignment="viewEnd" />
+
+    <TextView
+        android:text="Category :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:id="@+id/title2"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/accountName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Username :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/title3"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/title2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="EDIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/modifyButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/title2"
+        android:layout_toEndOf="@+id/title2"
+        android:onClick="editInfo" />
+
+    <Button
+        android:text="delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteButton"
+        android:layout_marginLeft="43dp"
+        android:layout_marginStart="43dp"
+        android:layout_alignBaseline="@+id/modifyButton"
+        android:layout_alignBottom="@+id/modifyButton"
+        android:layout_toRightOf="@+id/modifyButton"
+        android:layout_toEndOf="@+id/modifyButton"
+        android:onClick="deleteAccount" />
+
+    <Button
+        android:text="done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/deleteButton"
+        android:layout_alignLeft="@+id/deleteButton"
+        android:layout_alignStart="@+id/deleteButton"
+        android:id="@+id/doneButton"
+        android:visibility="invisible"
+        android:onClick="callDone" />
+
+    <TextView
+        android:text="Email :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title5"
+        android:textStyle="normal|bold"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/title4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/email"
+        android:clickable="false"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/title5"
+        android:layout_alignBottom="@+id/title5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="test"
+        android:editable="true"
+        android:enabled="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/password"
+        android:clickable="false"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/title4"
+        android:layout_alignBottom="@+id/title4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="test"
+        android:editable="true"
+        android:enabled="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/username"
+        android:clickable="false"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/title3"
+        android:layout_alignBottom="@+id/title3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="test"
+        android:editable="true"
+        android:enabled="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/accountName"
+        android:clickable="false"
+        android:text="test"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/title1"
+        android:layout_alignBottom="@+id/title1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:editable="true"
+        android:enabled="true" />
+
+    <TextView
+        android:text="Notes :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/title6"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/notes"
+        android:clickable="false"
+        android:text="test"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/title6"
+        android:layout_alignLeft="@+id/title4"
+        android:layout_alignStart="@+id/title4"
+        android:textAlignment="center"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:editable="true"
+        android:enabled="true" />
+
 </RelativeLayout>

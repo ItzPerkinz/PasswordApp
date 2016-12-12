@@ -35,6 +35,7 @@ import org.w3c.dom.Text;
 public class AddAccount extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private String category = "";
+    private  StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,9 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
         er.setVisibility(View.INVISIBLE);
         success.setVisibility(View.INVISIBLE);
         repeat.setVisibility(View.INVISIBLE);
+
+        encryptor.setPassword("seniorproj");
+        encryptor.initialize();
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -80,10 +84,6 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
         EditText no = (EditText) findViewById(R.id.notes);
 
         StringBuilder entry = new StringBuilder();
-        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
-        encryptor.setPassword("seniorproj");
-        encryptor.initialize();
-
 
         // setting all of the strings to write
         if (aN.getText().length() > 0) { accntName = aN.getText().toString(); }
@@ -179,17 +179,7 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
                 e.printStackTrace();
             }
 
-            StringBuilder test2 = new StringBuilder();
-            //test2.append(password); test2.append("::");
-            //test2.append(email); test2.append("::");
-            //test2.append(notes); test2.append("::");
-
-            //test2.append(file_name.length());
-
-
-
-            //String blah = test2.toString();
-            Log.d("Read", temp, new Throwable("X"));
+            Log.d("Read", temp);
 
         }
         else {

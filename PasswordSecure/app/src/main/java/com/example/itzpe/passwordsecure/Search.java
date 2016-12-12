@@ -1,5 +1,6 @@
 package com.example.itzpe.passwordsecure;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -38,8 +39,12 @@ import org.w3c.dom.Text;
 public class Search extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String selectedCategory = "";
-    StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
     ArrayAdapter<String> adapter2;
+    private String accountSelected;
+    private int index;
+    private int cat;
+
+    private StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
 
 
     @Override
@@ -75,8 +80,10 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
                 int index = position;
                 String itemVal = (String) parent.getItemAtPosition(index);
                 Log.d("Click", itemVal);
+                callModify(itemVal);
             }
         });
+
 
     }
 
@@ -89,6 +96,7 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
         selectedCategory = parent.getItemAtPosition(pos).toString();
+        cat = pos;
 
     }
 
@@ -194,8 +202,10 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
                 int index = position;
                 String itemVal = (String) parent.getItemAtPosition(index);
                 Log.d("Click", itemVal);
+                callModify(itemVal);
             }
         });
+
 
 
     }
@@ -207,10 +217,77 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
             temp.add(strings[i]);
         }
         Collections.sort(temp, String.CASE_INSENSITIVE_ORDER);
-        for (int i = 0; i < temp.size(); i++) {
+        int x = temp.size();
+        for (int i = 0; i < x; i++) {
             strings[i] = temp.remove(0);
         }
         return strings;
+    }
+
+    public void callModify(String entry) {
+        String[] info = findAccount(entry);
+
+        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+        encryptor.setPassword("seniorproj");
+        encryptor.initialize();
+
+        if (!info[3].equals("")) { info[3] = encryptor.decrypt(info[3]); }
+        if (!info[4].equals("")) { info[4] = encryptor.decrypt(info[4]); }
+        if (!info[5].equals("")) { info[5] = encryptor.decrypt(info[5]); }
+
+        Intent modify = new Intent(this, ModifyAccount.class);
+        int i = 0;
+        switch (info[1]) {
+            case "General": i = 0; break;
+            case "Entertainment": i = 1; break;
+            case "Purchasing": i = 2; break;
+            case "School": i = 3; break;
+            case "Work": i = 4; break;
+            case "Personal": i = 5; break;
+            case "Gaming": i = 6; break;
+            case "Other": i = 7; break;
+        }
+        modify.putExtra("AccountInfo", info);
+        modify.putExtra("LineIndex", index);
+        modify.putExtra("CategoryIndex", i);
+        startActivity(modify);
+
+    }
+
+    public String[] findAccount(String entry) {
+        String[] aAndc = entry.split(" -- ");
+
+        // read file and put it into wholestring
+        String wholestring = "";
+        try {
+            Context context = getApplicationContext();
+            FileInputStream fin = context.openFileInput("accounts.txt");
+            BufferedReader r = new BufferedReader(new InputStreamReader(fin));
+            int x;
+            while ((x=fin.read()) != -1) {
+                wholestring = wholestring + Character.toString((char)x);
+            }
+            fin.close();
+
+        }   catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] lines = wholestring.split("\n");                                                   // splits the whole file into each individual account
+        for (int i = 0; i < lines.length; i++) {
+            String x = lines[i] + "a";
+            String[] fields = x.split("::");
+            fields[fields.length-1] = fields[fields.length-1].substring(0,fields[fields.length-1].length()-1);
+            if (aAndc[0].equals(fields[0]) && aAndc[1].equals(fields[1])) {
+                index = i;
+                return fields;
+            }
+        }
+
+        String[] ret = {""};
+        return ret;
     }
 
 
