@@ -121,7 +121,8 @@ public class ModifyAccount extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void callDone(View v) {
-        if (!checkForDuplicate(accountName.getText().toString(), categoryString, line)) { Dialog d = confirmEdit();
+        if (!checkForDuplicate(accountName.getText().toString(), categoryString, line)) {
+            Dialog d = confirmEdit();
             d.show(); }
         // duplicate account name
         else {

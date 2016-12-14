@@ -66,41 +66,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="EDIT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/modifyButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/title2"
-        android:layout_toEndOf="@+id/title2"
-        android:onClick="editInfo" />
-
-    <Button
-        android:text="delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/deleteButton"
-        android:layout_marginLeft="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_alignBaseline="@+id/modifyButton"
-        android:layout_alignBottom="@+id/modifyButton"
-        android:layout_toRightOf="@+id/modifyButton"
-        android:layout_toEndOf="@+id/modifyButton"
-        android:onClick="deleteAccount" />
-
-    <Button
-        android:text="done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/deleteButton"
-        android:layout_alignLeft="@+id/deleteButton"
-        android:layout_alignStart="@+id/deleteButton"
-        android:id="@+id/doneButton"
-        android:visibility="invisible"
-        android:onClick="callDone" />
-
     <TextView
         android:text="Email :"
         android:layout_width="wrap_content"
@@ -204,5 +169,41 @@
         android:layout_alignParentEnd="true"
         android:editable="true"
         android:enabled="true" />
+
+    <Button
+        android:text="done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/doneButton"
+        android:visibility="invisible"
+        android:onClick="callDone"
+        android:layout_alignBaseline="@+id/deleteButton"
+        android:layout_alignBottom="@+id/deleteButton"
+        android:layout_alignLeft="@+id/deleteButton"
+        android:layout_alignStart="@+id/deleteButton" />
+
+    <Button
+        android:text="EDIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/modifyButton"
+        android:onClick="editInfo"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/email"
+        android:layout_toStartOf="@+id/email" />
+
+    <Button
+        android:text="delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteButton"
+        android:onClick="deleteAccount"
+        android:layout_marginRight="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_alignBaseline="@+id/modifyButton"
+        android:layout_alignBottom="@+id/modifyButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

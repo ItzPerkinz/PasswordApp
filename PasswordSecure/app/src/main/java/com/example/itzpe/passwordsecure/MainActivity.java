@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 if (entry == 00000) {
                     Intent fpass = new Intent(this, ForcedPassChange.class);
                     startActivity(fpass);
-                    this.finish();
+                    //this.finish();
                 }
                 else if (settings.getString("Question1", "").equals("")) {
                     Intent seqQuest = new Intent(this, SetupSecurityQuestions.class);

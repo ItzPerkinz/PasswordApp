@@ -251,6 +251,7 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemSelec
         modify.putExtra("LineIndex", index);
         modify.putExtra("CategoryIndex", i);
         startActivity(modify);
+        this.finish();
 
     }
 

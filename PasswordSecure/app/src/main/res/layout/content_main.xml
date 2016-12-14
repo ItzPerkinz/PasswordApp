@@ -68,7 +68,6 @@
         android:layout_marginBottom="18dp"
         android:id="@+id/clear"
         android:onClick="clear"
-        android:enabled="false"
         android:visibility="invisible"/>
 
     <Button
